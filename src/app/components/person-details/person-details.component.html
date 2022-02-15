@@ -1,1 +1,45 @@
-<p>person-details works!</p>
+<div>
+    <div *ngIf="currentPerson.id" class="edit-form">
+      <h4>Person</h4>
+      <form>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            [(ngModel)]="currentPerson.title"
+            name="title"
+          />
+        </div>
+        <div class="form-group">
+          <label for="nom">Nom</label>
+          <input
+            type="text"
+            class="form-control"
+            id="description"
+            [(ngModel)]="currentPerson.nom"
+            name="nom"
+          />
+        </div>
+       
+      </form>
+     
+      <button class="badge badge-danger mr-2" (click)="deleteTutorial()">
+        Delete
+      </button>
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateTutorial()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+    <div *ngIf="!currentPerson.id">
+      <br />
+      <p>Cannot access this Tutorial...</p>
+    </div>
+  </div>
+  
