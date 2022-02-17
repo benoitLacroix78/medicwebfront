@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from 'src/app/models/person.model';
 import { PersonService } from 'src/app/services/person.service';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-add-person',
   templateUrl: './add-person.component.html',
@@ -15,7 +16,9 @@ export class AddPersonComponent implements OnInit {
     title: ''
   };
   submitted = false;
-  constructor(private personService: PersonService) { }
+  constructor(
+    private personService: PersonService,
+    private router: Router) { }
   ngOnInit(): void {
   }
   savePerson(): void {
@@ -29,6 +32,7 @@ export class AddPersonComponent implements OnInit {
         response => {
           console.log(response);
           this.submitted = true;
+          this.router.navigate(['/persons']);
         },
         error => {
           console.log(error);

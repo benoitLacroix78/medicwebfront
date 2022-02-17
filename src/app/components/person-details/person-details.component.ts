@@ -54,19 +54,19 @@ export class PersonDetailsComponent implements OnInit {
           console.log(error);
         });
   }*/
-  updateTutorial(): void {
+  updatePerson(): void {
     this.message = '';
     this.personService.update(this.currentPerson.id, this.currentPerson)
       .subscribe(
         response => {
-          console.log(response);
-          this.message = response.message ? response.message : 'This tutorial was updated successfully!';
+          console.log("response"+ response);
+          this.message = response.message ? response.message : 'This person was updated successfully!';
         },
         error => {
           console.log(error);
         });
   }
-  deleteTutorial(): void {
+  deletePerson(): void {
     this.personService.delete(this.currentPerson.id)
       .subscribe(
         response => {

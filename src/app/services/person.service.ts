@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Person } from '../models/person.model';
-const baseUrl = 'http://localhost:8080/api/persons';
+const baseUrl = 'http://localhost:8080/api/person';
 @Injectable({
   providedIn: 'root'
 })
