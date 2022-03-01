@@ -1,5 +1,5 @@
 <div>
-    <div *ngIf="currentPerson.id" class="edit-form">
+    <div *ngIf="currentUser.id" class="edit-form">
       <h4>Person</h4>
       <form>
         <div class="form-group">
@@ -8,7 +8,7 @@
             type="text"
             class="form-control"
             id="title"
-            [(ngModel)]="currentPerson.title"
+            [(ngModel)]="currentUser.title"
             name="title"
           />
         </div>
@@ -18,7 +18,7 @@
             type="text"
             class="form-control"
             id="nom"
-            [(ngModel)]="currentPerson.nom"
+            [(ngModel)]="currentUser.nom"
             name="nom"
           />
         </div>
@@ -28,26 +28,26 @@
             type="text"
             class="form-control"
             id="prenom"
-            [(ngModel)]="currentPerson.prenom"
+            [(ngModel)]="currentUser.prenom"
             name="prenom"
           />
         </div>
        
       </form>
      
-      <button class="badge badge-danger mr-2" (click)="deletePerson()">
+      <button class="badge badge-danger mr-2" (click)="deleteUser()">
         Delete
       </button>
       <button
         type="submit"
         class="badge badge-success mb-2"
-        (click)="updatePerson()"
+        (click)="updateUser()"
       >
         Update
       </button>
       <p>{{ message }}</p>
     </div>
-    <div *ngIf="!currentPerson.id">
+    <div *ngIf="!currentUser.id">
       <br />
       <p>Cannot access this Tutorial...</p>
     </div>

@@ -23,37 +23,37 @@
       <ul class="list-group">
         <li
           class="list-group-item"
-          *ngFor="let person of persons; let i = index"
+          *ngFor="let user of users; let i = index"
           [class.active]="i == currentIndex"
-          (click)="setActivePerson(person, i)"
+          (click)="setActiveUser(user, i)"
         >
-          {{ person.title }}  {{ person.nom }}
+          {{ user.title }}  {{ user.nom }}
         </li>
       </ul>
       
-      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllPersons()">
+      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllUsers()">
         Remove All
       </button>
     </div>
     <div class="col-md-6">
-      <div *ngIf="currentPerson.id">
+      <div *ngIf="currentUser.id">
         <h4>Tutorial</h4>
         <div>
-          <label><strong>Title:</strong></label> {{ currentPerson.title }}
+          <label><strong>Title:</strong></label> {{ currentUser.title }}
         </div>
         <div>
           <label><strong>Description:</strong></label>
-          {{ currentPerson.nom }}
+          {{ currentUser.nom }}
         </div>
         <div>
           <label><strong>Status:</strong></label>
-          {{ currentPerson.prenom }}
+          {{ currentUser.prenom }}
         </div>
-        <a class="badge badge-warning" routerLink="/persons/{{ currentPerson.id }}">
+        <a class="badge badge-warning" routerLink="/users/{{ currentUser.id }}">
           Edit
         </a>
       </div>
-      <div *ngIf="!currentPerson">
+      <div *ngIf="!currentUser">
         <br />
         <p>Please click on a Tutorial...</p>
       </div>

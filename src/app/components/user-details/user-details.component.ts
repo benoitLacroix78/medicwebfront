@@ -1,35 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { PersonService } from 'src/app/services/person.service';
+import { UserService } from 'src/app/services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Person } from 'src/app/models/person.model';
+import { User } from 'src/app/models/user.model';
 
 @Component({
-  selector: 'app-person-details',
-  templateUrl: './person-details.component.html',
-  styleUrls: ['./person-details.component.css']
+  selector: 'app-userdetails',
+  templateUrl: './user-details.component.html',
+  styleUrls: ['./user-details.component.css']
 })
-export class PersonDetailsComponent implements OnInit {
-  currentPerson: Person = {
+export class UserDetailsComponent implements OnInit {
+  currentUser: User = {
     title: '',
     nom: '',
     prenom : ''
   };
   message = '';
   constructor(
-    private personService: PersonService,
+    private userService: UserService,
     private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit(): void {
     this.message = '';
-    this.getPerson(this.route.snapshot.params['id']);
+    this.getUser(this.route.snapshot.params['id']);
   }
 
-  getPerson(id: string): void {
-    this.personService.get(id)
+  getUser(id: string): void {
+    this.userService.get(id)
       .subscribe(
         data => {
-          this.currentPerson = data;
+          this.currentUser = data;
           console.log(data);
         },
         error => {
@@ -54,9 +54,9 @@ export class PersonDetailsComponent implements OnInit {
           console.log(error);
         });
   }*/
-  updatePerson(): void {
+  updateUser(): void {
     this.message = '';
-    this.personService.update(this.currentPerson.id, this.currentPerson)
+    this.userService.update(this.currentUser.id, this.currentUser)
       .subscribe(
         response => {
           console.log("response"+ response);
@@ -66,8 +66,8 @@ export class PersonDetailsComponent implements OnInit {
           console.log(error);
         });
   }
-  deletePerson(): void {
-    this.personService.delete(this.currentPerson.id)
+  deleteUser(): void {
+    this.userService.delete(this.currentUser.id)
       .subscribe(
         response => {
           console.log(response);

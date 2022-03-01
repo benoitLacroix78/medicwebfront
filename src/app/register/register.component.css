@@ -1,0 +1,15 @@
+.list {
+    text-align: left;
+    max-width: 750px;
+    margin: auto;
+    list-style-position: inside;
+  }
+
+.ul {
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+}
+.li {
+    display: inline-block;
+}
